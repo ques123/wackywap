@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: wackywap
+    runtime: node
+    rootDir: server
+    buildCommand: cd ../client && npm install && npm run build && cd ../server && npm install
+    startCommand: node index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BOT_TOKEN
+        sync: false
+      - key: MINI_APP_URL
+        sync: false
